@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/CustomCss/gt-custom.css" asp-append-version="true" />
 </head>
-<body class="bg-light">
+<body class="bg-secondary">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -25,8 +25,25 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="YouTubeCommentPicker">YouTube</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="commentPicker" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Comment Picker
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="commentPicker">
+                                <li><a class="dropdown-item" asp-action="YouTubeCommentPicker" asp-controller="Home">YouTube Videos</a></li>
+                                <li><a class="dropdown-item disabled" href="javascript:void(0)">Instagram Post</a></li>
+                                <li><a class="dropdown-item disabled" href="javascript:void(0)">Facebook Post</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle disabled" href="javascript:void(0)" id="videoDownloader" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Video Downloader
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="videoDownloader">
+                                <li><a class="dropdown-item" href="javascript:void(0)">YouTube</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0)">Instagram</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0)">Facebook</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
