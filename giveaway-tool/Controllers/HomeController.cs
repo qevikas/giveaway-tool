@@ -24,9 +24,9 @@ public class HomeController(IYouTube _yt, ICommon common) : Controller
     [HttpPost, Route("youtube-comment-picker")]
     public IActionResult YouTubeCommentPicker(CommentPicker picker)
     {
-        var comments = _yt.GetComments(picker.Input).ToList();
-        if (picker.WinnerCount > comments.Count) picker.WinnerCount = (short)comments.Count;
-        picker.Winners = common.PickWinners(comments, picker.WinnerCount)?.ToList();
+        var comments = _yt.GetComments(picker.Input).DistinctBy(c => c.UserId);
+        if (picker.WinnerCount > comments.Count()) picker.WinnerCount = (short)comments.Count();
+        picker.Winners = common.PickWinners(comments.ToList(), picker.WinnerCount)?.ToList();
         return View(picker);
     }
 

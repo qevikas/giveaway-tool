@@ -2,70 +2,60 @@
 	ViewBag.Title = "Giveaway Tools";
 }
 
-<!-- Dashboard Sub-Header / Action Bar -->
-<div class="row g-3 mb-4 align-items-center justify-content-between">
-    <div class="col-12 col-md-auto">
-        <h1 class="h2 fw-bold tracking-tight mb-1 text-dark" style="text-align: left">Giveaway Dashboard</h1>
-        <p class="text-muted small mb-0">Launch campaigns, manage entries, and draw verified random winners.</p>
-    </div>
-</div>
+<link href="~/css/CustomCSS/comming-soon-cards.css" rel="stylesheet" />
 
-<!-- High-Level Performance Metrics -->
-<div class="row g-3 mb-4">
-    <!-- Stat Item -->
-    <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-body d-flex align-items-center">
-                <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-3 me-3">
-                    <i class="bi bi-collection-play-fill fs-4 lh-1"></i>
-                </div>
-                <div>
-                    <span class="text-muted small d-block mb-1 fw-medium text-uppercase tracking-wider">Active Pools</span>
-                    <span class="fs-3 fw-bold text-dark lh-1">12</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Stat Item -->
-    <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card border-0 shadow-sm h-100 bg-white">
-            <div class="card-body d-flex align-items-center">
-                <div class="p-3 bg-success bg-opacity-10 text-success rounded-3 me-3">
-                    <i class="bi bi-people-fill fs-4 "lh-1"></i>
-                </div>
-                <div>
-                    <span class="text-muted small d-block mb-1 fw-medium text-uppercase tracking-wider">Total Entries</span>
-                    <span class="fs-3 fw-bold text-dark lh-1">48.2K</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Stat Item -->
-    <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card border-0 shadow-sm h-100 bg-white">
-            <div class="card-body d-flex align-items-center">
-                <div class="p-3 bg-warning bg-opacity-10 text-warning-emphasis rounded-3 me-3">
-                    <i class="bi bi-trophy-fill fs-4 lh-1"></i>
-                </div>
-                <div>
-                    <span class="text-muted small d-block mb-1 fw-medium text-uppercase tracking-wider">Winners Drawn</span>
-                    <span class="fs-3 fw-bold text-dark lh-1">184</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Stat Item -->
-    <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card border-0 shadow-sm h-100 bg-white">
-            <div class="card-body d-flex align-items-center">
-                <div class="p-3 bg-info bg-opacity-10 text-info-emphasis rounded-3 me-3">
-                    <i class="bi bi-graph-up-arrow fs-4 lh-1"></i>
-                </div>
-                <div>
-                    <span class="text-muted small d-block mb-1 fw-medium text-uppercase tracking-wider">Avg. Conversion</span>
-                    <span class="fs-3 fw-bold text-dark lh-1">64.8%</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<h3 class="py-4">Comment Picker From Video/Post URL</h3>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 py-2">
+
+	<div class="col">
+		<div class="coming-card">
+			<div class="coming-card-body">
+				<div class="coming-icon"><i class="bi bi-youtube text-danger"></i></div>
+				<p class="mb-4">Pick comments from YouTube video by the video link for giveaway.</p>
+				<a asp-action="YouTubeCommentPicker" asp-controller="Home" class="btn btn-gradient w-100 py-2"> Go To Page <i class="bi bi-hand-index"></i> </a>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="coming-card">
+			<div class="coming-card-body">
+				<div class="coming-icon"><i class="bi bi-instagram instagram-icon-color"></i></div>
+				<p class="mb-4">Pick comments from instagram post by the post link for giveaway.</p>
+				<span class="badge-coming mt-2 d-inline-block">Coming Soon</span>
+				@*<a href="/comment-picker/you-tube" class="btn btn-gradient w-100 py-2"> Go To Page <i class="bi bi-hand-index"></i> </a>*@
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="coming-card">
+
+			<div class="coming-card-body">
+				<div class="coming-icon"><i class="bi bi-facebook" style="color:#1877F2;"></i></div>
+				<p class="mb-4">Pick comments from facebook post by the post link for giveaway.</p>
+				<span class="badge-coming mt-2 d-inline-block">Coming Soon</span>
+				@*<a href="/comment-picker/you-tube" class="btn btn-gradient w-100 py-2"> Go To Page <i class="bi bi-hand-index"></i> </a>*@
+			</div>
+		</div>
+	</div>
+
+</div>
+<hr />
+<h3 class="py-5">Download Videos From URL</h3>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 py-2">
+
+	<div class="col">
+		<div class="coming-card">
+			<div class="coming-card-body">
+				<div class="coming-icon text-danger"><i class="bi bi-youtube"></i></div>
+				<p class="mb-4">Download YouTube videos instantly by pasting the video link.</p>
+				<span class="badge-coming mt-2 d-inline-block">Coming Soon</span>
+				@*<div class="small-note">Feature under development. Stay tuned!</div>*@
+			</div>
+		</div>
+	</div>
+
 </div>
