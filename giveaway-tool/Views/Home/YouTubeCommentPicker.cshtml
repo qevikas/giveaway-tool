@@ -35,7 +35,7 @@
 							{
 								<li class="mb-3">
 									<div style="float: left">
-										<img src="@winner.ProfileImageUrl" height="35px" width="35px" style="border-radius: 50%;" />
+										<img src="@winner.ProfileImageUrl" referrerpolicy="no-referrer" style="border-radius:50%; height:35px; width:35px;" />
 									</div>
 									<div style="padding-left: 40px;">
 										<p><strong style="font-size: 13px;"> @winner.UserName</strong></p>
@@ -56,3 +56,6 @@
 		</div>
 	</div>
 </div>
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}
