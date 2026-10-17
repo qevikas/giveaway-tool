@@ -1,10 +1,17 @@
 ﻿using System.Security.Cryptography;
 
 namespace giveaway_tool.Library;
-public class Common
+public class Common : ICommon
 {
 
-    public static void Shuffle<T>(IList<T> list)
+    public IEnumerable<T> PickWinners<T>(IList<T> winners, short winnerCount)
+    {
+        if (winners is null || winners.Count == 0) return null;
+        Shuffle(winners);
+        return winners.Take(winnerCount);
+    }
+
+    private static void Shuffle<T>(IList<T> list)
     {
         if (list is null || list.Count <= 1) return;
         int n = list.Count;
@@ -12,7 +19,7 @@ public class Common
         {
             int i = RandomNumberGenerator.GetInt32(n);
             n--;
-            (list[n], list[i]) = (list[n], list[i]);
+            (list[n], list[i]) = (list[i], list[n]);
         }
     }
 

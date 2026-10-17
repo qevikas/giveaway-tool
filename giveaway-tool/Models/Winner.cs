@@ -7,6 +7,6 @@ public class Winner
     public string ProfileUrl { get; set; }
     public string CommentText { get; set; }
     public string Platform { get; set; }
-    public DateTime? PublishedOn { get; set; }
-    public DateTime? UpdatedOn { get; set; }
+    public DateTimeOffset? PublishedOn { get; set; }
+    public DateTimeOffset? UpdatedOn { get; set; }
 }

@@ -1,11 +1,13 @@
+using giveaway_tool.Library;
 using giveaway_tool.Models;
+using giveaway_tool.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace giveaway_tool.Controllers;
 
 [Route("giveaway-tools")]
-public class HomeController : Controller
+public class HomeController(IYouTube _yt, ICommon common) : Controller
 {
     [Route("home")]
     public IActionResult Index()
@@ -22,7 +24,10 @@ public class HomeController : Controller
     [HttpPost, Route("youtube-comment-picker")]
     public IActionResult YouTubeCommentPicker(CommentPicker picker)
     {
-        return View();
+        var comments = _yt.GetComments(picker.Input).ToList();
+        if (picker.WinnerCount > comments.Count) picker.WinnerCount = (short)comments.Count;
+        picker.Winners = common.PickWinners(comments, picker.WinnerCount)?.ToList();
+        return View(picker);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
