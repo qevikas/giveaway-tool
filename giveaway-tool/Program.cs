@@ -1,5 +1,7 @@
 using giveaway_tool.Library;
 using giveaway_tool.Services;
+using Google.Apis.Services;
+using Google.Apis.YouTube.v3;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,13 @@ builder.Services.AddSignalR();
 // Register Services
 builder.Services.AddScoped<IYouTube, YouTube>();
 builder.Services.AddScoped<ICommon, Common>();
+
+// Register Youtube Service and ApiKey
+builder.Services.AddSingleton(new YouTubeService(new BaseClientService.Initializer
+{
+    ApiKey = builder.Configuration["AppSettings:ApiKey"],
+    ApplicationName = "YouTube Comment Picker"
+}));
 
 var app = builder.Build();
 
