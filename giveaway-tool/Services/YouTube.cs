@@ -1,20 +1,13 @@
 ﻿using giveaway_tool.Models;
-using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
 
 namespace giveaway_tool.Services;
-public class YouTube : IYouTube
+public class YouTube(YouTubeService _ytService) : IYouTube
 {
-    private readonly string apiKey = "AIzaSyDrmjoQvAvD3avpMHs77eVZ9zxiizZ8E9k";
 
     public IEnumerable<Winner> GetComments(string url)
     {
-        var ytService = new YouTubeService(new BaseClientService.Initializer
-        {
-            ApiKey = apiKey,
-            ApplicationName = "YouTube Comment Picker"
-        });
-        var request = ytService.CommentThreads.List("snippet");
+        var request = _ytService.CommentThreads.List("snippet");
         request.VideoId = ExtractVideoID(url);
         request.MaxResults = 100;
 
