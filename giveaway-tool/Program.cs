@@ -1,7 +1,17 @@
+using giveaway_tool.Library;
+using giveaway_tool.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Register SignalR
+builder.Services.AddSignalR();
+
+// Register Services
+builder.Services.AddScoped<IYouTube, YouTube>();
+builder.Services.AddScoped<ICommon, Common>();
 
 var app = builder.Build();
 
