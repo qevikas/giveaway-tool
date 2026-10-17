@@ -1,0 +1,107 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0f0f0f;
+    color: #f0f0f0;
+}
+
+.card-bg {
+    color: #f0f0f0;
+    background: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+/* Container */
+.picker-container {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #00bfa6;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+select, input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+}
+
+input {
+    background: #121212;
+    color: #f0f0f0;
+}
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+
+select {
+    background: #121212;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Button style */
+button {
+    background: linear-gradient(90deg, #00bfa6, #00f0c0);
+    color: #000;
+    font-weight: 600;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+    button:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+
+/* Winner Display */
+.winner-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: #111;
+    border-left: 5px solid #00bfa6;
+    border-radius: 8px;
+}
+
+    .winner-box h3 {
+        margin-bottom: 10px;
+        color: #00f0c0;
+    }
+
+    .winner-box p {
+        margin-bottom: 5px;
+    }
+
+/* Footer note */
+.footer-note {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #888;
+}
