@@ -1,0 +1,42 @@
+name: Giveaway Tool CD(Continuous Delivery)
+
+on:
+  push: 
+    branches:
+      - main
+  workflow_dispatch: 
+
+permissions: 
+  contents: read
+
+jobs:
+  release: 
+    name: Build Package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v6
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore Dependecies
+        run: dotnet restore giveaway-tool.slnx
+
+      - name: Build Solution
+        run: dotnet build giveaway-tool.slnx --configuration Release
+
+      - name: Publish Giveaway Tool
+        run: dotnet publish giveaway-tool/giveaway-tool.csproj --configuration Release --no-build --output ./publish
+
+      - name: Upload Release Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Giveaway Tool
+          path: publish/
+          if-no-files-found: error
+          retention-days: 7
+      
