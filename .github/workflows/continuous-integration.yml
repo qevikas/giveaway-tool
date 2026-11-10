@@ -1,4 +1,4 @@
-name: Giveaway Tool Continuous Integration
+name: Giveaway Tool CI(Continuous Integration)
 
 on: 
   push: 
