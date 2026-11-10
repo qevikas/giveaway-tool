@@ -18,5 +18,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v6
 
+      - name: Restore Dependencies
+        run: dotnet restore giveaway-tool.slnx
+
       - name: Build Solution
         run: dotnet build giveaway-tool.slnx --configuration Release --no-restore
