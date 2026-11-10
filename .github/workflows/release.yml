@@ -1,0 +1,46 @@
+name: GiveAway Tool Release
+
+on: 
+  push: 
+    tags: 
+      - 'v*'
+
+permissions: 
+  contents: write
+
+jobs:
+  release: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore giveaway-tool.slnx
+
+      - name: Build
+        run: dotnet build giveaway-tool.slnx -c Release --no-restore
+
+      - name: Publish Giveaway Application
+        run: |
+          dotnet publish giveaway-tool/giveaway-tool.csproj
+          -c Release \
+          -o ./publish
+
+      - name: Create ZIP
+        run: |
+          cd publish
+          zip -r ../application-${GITHUB_REF_NAME}.zip .
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          generate-release-notes: true
+          files: application-${{ github.ref_name }}.zip
