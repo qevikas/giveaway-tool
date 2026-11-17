@@ -14,4 +14,8 @@
     <PackageReference Include="Google.Apis.YouTube.v3" Version="1.77.0.4302" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Security\" />
+  </ItemGroup>
+
 </Project>

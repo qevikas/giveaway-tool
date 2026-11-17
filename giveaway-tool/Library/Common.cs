@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using giveaway_tool.Contracts;
+using System.Security.Cryptography;
 
 namespace giveaway_tool.Library;
 public class Common : ICommon

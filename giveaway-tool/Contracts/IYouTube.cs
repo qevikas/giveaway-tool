@@ -1,6 +1,6 @@
 ﻿using giveaway_tool.Models;
 
-namespace giveaway_tool.Services;
+namespace giveaway_tool.Contracts;
 public interface IYouTube
 {
     /// <summary>
